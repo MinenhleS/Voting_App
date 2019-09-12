@@ -1,21 +1,37 @@
 package Stu;
 
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+
 public class Admin {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
-         Student student = new Student("Siya", "Ngwenya", 215285840);
+         Student student = new Student("Siya", "Ngwenya", "205285840");
+        String checkStudent = student.studentNumber;
 
-        Path path = Paths.get("data.txt");
-        try (Stream<String> lines = Files.lines(path)) {
-            
+        String fileName = "/home/coder/IdeaProjects/Voting_App/src/Stu/data.txt";
 
-        } catch (Exception e) {
+        try (Stream<String> stream = Files.lines( Paths.get(fileName))) {
+            //stream.forEach(System.out::println);
+            boolean output = stream.anyMatch(s -> s.contains(checkStudent));
+            //System.out.println(output);
+
+            if(output== true){
+                System.out.println("Allowed to vote");
+
+            }
+            else{
+                System.out.println("Not allowed to vote");
+            }
+
+        }
+        catch(IOException e) {
             e.printStackTrace();
         }
 

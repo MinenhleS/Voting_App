@@ -3,13 +3,13 @@ package Stu;
 public class Student {
     String firstName;
     String lastName;
-    int studentNumber;
+    String studentNumber;
 
     public Student(){
 
     }
 
-    public Student(String firstName, String lastName, int studentNumber){
+    public Student(String firstName, String lastName, String studentNumber){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +24,7 @@ public class Student {
         return lastName;
     }
 
-    public int getStudentNumber() {
+    public String getStudentNumber() {
         return studentNumber;
     }
 
